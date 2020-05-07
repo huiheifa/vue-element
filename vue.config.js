@@ -1,12 +1,16 @@
 'use strict'
 const path = require('path')
+
+const SentryWebpackPlugin = require('@sentry/webpack-plugin') // sentry/webpack-plugin
 const defaultSettings = require('./src/settings.js')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'vue Admin Template' // page title
+const name = defaultSettings.title || 'Huiheifa' // page title
+
+const outputDir = process.env.VUE_APP_OUTPUT_DIR || 'dist' // 打包后的文件目录
 
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
@@ -25,13 +29,13 @@ module.exports = {
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
   publicPath: '/',
-  outputDir: 'dist',
+  outputDir: outputDir,
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
-  productionSourceMap: false,
+  productionSourceMap: true,
   devServer: {
     port: port,
-    open: true,
+    open: false,
     overlay: {
       warnings: false,
       errors: true
@@ -84,6 +88,21 @@ module.exports = {
     // https://webpack.js.org/configuration/devtool/#development
       .when(process.env.NODE_ENV === 'development',
         config => config.devtool('cheap-source-map')
+      )
+    // sentry/webpack-plugin
+    config
+      .when(process.env.NODE_ENV === 'production',
+        config => {
+          config
+            .plugin('@sentry/webpack-plugin')
+            .use(SentryWebpackPlugin, [
+              {
+                include: './dist/',
+                url: '~/static/'
+              }
+            ])
+            .end()
+        }
       )
 
     config

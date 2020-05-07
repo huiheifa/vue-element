@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <div class="dashboard-text" @click="asd">name: {{ name }}</div>
   </div>
 </template>
 
@@ -13,6 +13,13 @@ export default {
     ...mapGetters([
       'name'
     ])
+  },
+  methods: {
+    asd() {
+      // 测试异常
+      this.qwe()
+      this.rty()
+    }
   }
 }
 </script>

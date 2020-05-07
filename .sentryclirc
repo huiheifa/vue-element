@@ -1,0 +1,7 @@
+[defaults]
+url = https://sentry.io/
+org = h-web
+project = web
+
+[auth]
+token = 92aedfda25e0432eab11811b9ea300055b209ff123b24845b3f2f7c52b86fa15

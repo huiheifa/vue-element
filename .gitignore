@@ -1,6 +1,5 @@
 .DS_Store
 node_modules/
-dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -15,5 +14,8 @@ tests/**/coverage/
 *.njsproj
 *.sln
 
+# 项目产生的ignore
 .history
-
+build-test
+build-pre
+dist/

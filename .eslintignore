@@ -1,5 +1,11 @@
 build/*.js
 src/assets
 public
-dist
+
+
+
+# 项目产生的ignore
 .history
+build-test
+build-pre
+dist

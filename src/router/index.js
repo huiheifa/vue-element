@@ -58,7 +58,7 @@ export const constantRoutes = [
   {
     path: '/example',
     component: Layout,
-    redirect: '/example/table',
+    redirect: '/example/table2',
     name: 'Example',
     meta: { title: 'Example', icon: 'example' },
     children: [
@@ -67,6 +67,12 @@ export const constantRoutes = [
         name: 'Table',
         component: () => import('@/views/table/index'),
         meta: { title: 'Table', icon: 'table' }
+      },
+      {
+        path: 'table2',
+        name: 'Table2',
+        component: () => import('@/views/table/index2'),
+        meta: { title: 'Table2', icon: 'table' }
       },
       {
         path: 'tree',

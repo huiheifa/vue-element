@@ -15,6 +15,18 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import '@/components/index' // 注册全局组件
+
+// sentry 异常监控
+import * as Sentry from '@sentry/browser'
+import { Vue as VueIntegration } from '@sentry/integrations'
+
+Vue.prototype.$sentry = Sentry
+Sentry.init({
+  dsn: 'https://c5f3bdbcd1ca4e81902c0b7182026b6b@o388994.ingest.sentry.io/5226602',
+  integrations: [new VueIntegration({ Vue, attachProps: true })]
+})
+
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
