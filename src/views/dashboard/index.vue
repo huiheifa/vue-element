@@ -16,9 +16,10 @@ export default {
   },
   methods: {
     asd() {
+      console.log(88)
       // 测试异常
       this.qwe()
-      this.rty()
+      // this.rty()
     }
   }
 }
