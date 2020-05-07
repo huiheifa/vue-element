@@ -23,7 +23,7 @@ import { Vue as VueIntegration } from '@sentry/integrations'
 
 Vue.prototype.$sentry = Sentry
 Sentry.init({
-  dsn: 'https://c5f3bdbcd1ca4e81902c0b7182026b6b@o388994.ingest.sentry.io/5226602',
+  dsn: 'https://8eea1d356a2a41b4a5def89416d9eef2@o388994.ingest.sentry.io/5226602',
   integrations: [new VueIntegration({ Vue, attachProps: true })]
 })
 
